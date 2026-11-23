@@ -178,26 +178,44 @@
     .heart-photo { width: 160px; height: 160px; bottom: 0; clip-path: path('M 80 24 C 80 24 120 -8 160 24 C 200 56 160 104 80 152 C 0 104 -40 56 0 24 C 40 -8 80 24 80 24 Z'); }
   }
 
-  /* Reproductor de Spotify (Nota adhesiva) */
-  .spotify-note {
+  /* Reproductor de Música (Nota adhesiva) */
+  .music-note {
     background: #fff9c4;
-    padding: 25px 20px 15px;
+    padding: 30px 20px 20px; /* Un poco más de espacio arriba para el texto */
     width: 100%;
-    max-width: 350px;
+    max-width: 400px; /* Un poco más ancho para el video */
     margin: 30px auto;
     transform: rotate(2deg);
     box-shadow: 3px 5px 15px rgba(0,0,0,0.2);
     position: relative;
     border-radius: 2px;
   }
-  .spotify-note::before {
-    content: '🎵 Niña Bonita, amor';
+  .music-note::before {
+    content: '🎵 Te Amo y Te Amo';
     font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #333;
     position: absolute;
     top: 5px;
     left: 15px;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
 
   /* Carta (Estilo papel roto) */
@@ -205,7 +223,7 @@
     background: var(--paper);
     padding: 40px 30px;
     width: 100%;
-    margin: 50px 0;
+    margin: 50px 0 20px 0;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     position: relative;
     transform: rotate(-1deg);
@@ -244,10 +262,21 @@
     margin-top: 20px;
   }
 
+  /* Fragmento de la letra de la canción */
+  .lyrics-fragment {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: #fff;
+    text-align: center;
+    margin: 20px 0 40px;
+    transform: rotate(1deg);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+
   /* Sección de Sorpresa / Botón */
   .surprise-section {
     text-align: center;
-    margin: 40px 0;
+    margin: 20px 0;
   }
 
   .btn-scrapbook {
@@ -346,11 +375,17 @@
 
   </div>
 
-  <!-- Reproductor de Spotify (Nota adhesiva) -->
-  <div class="spotify-note">
+  <!-- Reproductor de Música (Nota adhesiva con YouTube) -->
+  <div class="music-note">
     <div class="tape tape-center"></div>
-    <!-- Reproductor incrustado de Spotify con la canción "Niña Bonita" -->
-    <iframe style="border-radius:12px; margin-top: 15px;" src="https://open.spotify.com/embed/track/7LSdAF6AUKmcsUTy3747rh?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="video-container">
+      <!-- Video de YouTube con la canción completa -->
+      <iframe src="https://www.youtube.com/embed/3EwKV8qHveo?start=9&rel=0" 
+              title="Te Amo y Te Amo" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+      </iframe>
+    </div>
   </div>
 
   <!-- Carta / Mensaje -->
@@ -360,6 +395,12 @@
     <p>Admiro tu fuerza, tu hermosa sonrisa y la forma en que iluminas todo a tu paso, amor. Me siento el chico más afortunado del mundo por poder caminar a tu lado y compartir momentos que guardo en el corazón.</p>
     <p>Deseo que este nuevo año de vida te traiga infinitas bendiciones, que cumplas cada meta que te propongas y que nunca te falten motivos para sonreír.</p>
     <div class="signature">Te amo, amor ❤️</div>
+  </div>
+
+  <!-- Fragmento de la canción -->
+  <div class="lyrics-fragment">
+    <p>"Y te amo y te amo, te amo y te amo..."</p>
+    <p>"Que tu amor es un mar donde cruza mi barca..."</p>
   </div>
 
   <!-- Botón Sorpresa -->
